@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Centro de Descargas ASUS</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto:wght@400;500&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #0a0a0a, #1c1c1c);
+      font-family: 'Roboto', sans-serif;
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      text-align: center;
+      max-width: 900px;
+      padding: 40px;
+    }
+
+    h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2.5rem;
+      color: #ff0022;
+      margin-bottom: 40px;
+      text-shadow: 0 0 10px #ff0022aa;
+    }
+
+    #searchInput {
+      width: 80%;
+      max-width: 400px;
+      padding: 12px 20px;
+      margin-bottom: 30px;
+      border: 1px solid #2c2c2c;
+      border-radius: 8px;
+      background: #121212;
+      color: #fff;
+      font-size: 1rem;
+      outline: none;
+      transition: all 0.3s ease;
+    }
+
+    #searchInput:focus {
+      border-color: #ff0022;
+      box-shadow: 0 0 10px rgba(255, 0, 34, 0.3);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #121212;
+      border: 1px solid #2c2c2c;
+      border-radius: 16px;
+      padding: 25px 20px;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 15px rgba(255, 0, 34, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      top: -100%;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(120deg, transparent, rgba(255,0,34,0.2), transparent);
+      transition: all 0.6s ease;
+    }
+
+    .card:hover::before {
+      top: 100%;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 0 25px rgba(255, 0, 34, 0.4);
+      border-color: #ff0022;
+    }
+
+    .card h2 {
+      font-family: 'Orbitron', sans-serif;
+      color: #ff0022;
+      font-size: 1.3rem;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #ccc;
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #ff0022;
+      color: #fff;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #ff3344;
+      box-shadow: 0 0 10px #ff0022;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>ENLACES DE DESCARGAS</h1>
+    <input type="text" id="searchInput" placeholder="Buscar: TikTok, Facebook, Instagram, YouTube..." onkeyup="filtrarTarjetas()">
+    <div class="cards">
+      <div class="card" data-title="TikTok Descarga Videos">
+        <h2>Descarga Videos de TikTok</h2>
+        <p>Descarga tus videos Aqui</p>
+        <a href="https://tikvid.io/es" class="btn" target="_blank">Visitar</a>
+      </div>
+      <div class="card" data-title="Facebook Descarga Videos">
+        <h2>Descarga Videos de Facebook</h2>
+        <p>Descarga tus videos Aqui.</p>
+        <a href="https://fdownloader.net/es" class="btn" target="_blank">Visitar</a>
+      </div>
+      <div class="card" data-title="Instagram Descarga Videos">
+        <h2>Descarga Videos de Instagram</h2>
+        <p>Descarga tus videos Aqui.</p>
+        <a href="https://sssinstagram.com/es" class="btn" target="_blank">Visitar</a>
+      </div>
+      <div class="card" data-title="Twitter X Descarga Videos">
+        <h2>Descarga Videos de X (Twitter)</h2>
+        <p>Descarga tus videos Aqui.</p>
+        <a href="https://ssstwitter.com/result_normal?es" class="btn" target="_blank">Visitar</a>
+      </div>
+      <div class="card" data-title="YouTube Descarga Videos">
+        <h2>Descarga de Videos YouTube</h2>
+        <p>Descarga tus videos Aqui.</p>
+        <a href="https://savefrom.in.net/es8/" class="btn" target="_blank">Visitar</a>
+      </div>
+      <div class="card" data-title="MagisTV App Descarga">
+        <h2>Descarga app MagisTV</h2>
+        <p>Descarga tu app Aqui.</p>
+        <a href="https://magistvgratis.co/" class="btn" target="_blank">Visitar</a>
+      </div>
+    </div>
+  </div>
+  <script>
+    function filtrarTarjetas() {
+      const input = document.getElementById('searchInput').value.toLowerCase();
+      const cards = document.querySelectorAll('.card');
+
+      cards.forEach(card => {
+        const title = card.getAttribute('data-title').toLowerCase();
+        if (title.includes(input)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>
